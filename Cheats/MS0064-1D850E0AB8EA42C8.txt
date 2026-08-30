@@ -1,0 +1,234 @@
+^1 = Hash: 1d850e0ab8ea42c8a5bb3d05cd85730cdbda4addcf9dff4cc790028620645709
+^2 = GameID: MS0064
+^3 = NAME: Halo 2
+!Halo 2 HD - XEMU Test:
++:PREENTRY:480p Wide - 64MB Baseline{Initial XEMU port of the Halo 2 HD 64MB rendering path. Enable before starting the game. Requires 480p + Widescreen enabled in the Xbox video settings. 720p/1080i, 128MB cache relocation, triple buffering, GPU/HDD/fan changes, HUD/fog toggles, debug drawing and split-screen divider changes are intentionally not included in this first baseline.}
+%Credits: grimdoomer
+; _rasterizer_detect_video_mode:
+; Progressive = 480p OR 720p. F0 is used instead of a raw byte write so
+; disabling the cheat restores the original instruction bytes automatically.
+$F0000000 000123E5
+$and eax,0000000A
+$mov byte ptr [00485AC2],dl
+$DEADCODE
+; Disable original anamorphic 4:3 scaling (1.3333333f -> 1.0f).
+$2045DFDC 3F800000
+; Reduce runtime data reservation by 1 MiB for the larger 720x480 buffers.
+$F0000000 0012B41D
+$mov eax,03045000
+$push ecx
+$push 02FE4000
+$jmp 0012B428
+$DEADCODE
+; Set screen/frame bounds. Preserve the source behavior: 640x480 unless the
+; Xbox reports Widescreen + 480p; then use 720x480. 720p/1080i are masked out.
+$F0000000 00016A30
+$sub esp,10
+$push ecx
+$mov dword ptr [esp+0C],edx
+$mov dword ptr [esp+10],ecx
+$mov dword ptr [esp+04],00000280
+$mov dword ptr [esp+08],000001E0
+$cmp byte ptr [00485AC2],00
+$jz SB_SetBounds
+$mov eax,00330339
+$call eax
+$and eax,00000008
+$jz SB_SetBounds
+$mov dword ptr [esp+04],000002D0
+$SB_SetBounds:
+$xor eax,eax
+$mov word ptr [00485A8C],ax
+$mov word ptr [00485A8A],ax
+$mov eax,dword ptr [esp+04]
+$mov word ptr [00485A90],ax
+$mov eax,dword ptr [esp+08]
+$mov word ptr [00485A8E],ax
+$mov eax,dword ptr [esp+04]
+$mov ecx,dword ptr [esp+0C]
+$sub eax,ecx
+$mov word ptr [00485A94],cx
+$mov word ptr [00485A98],ax
+$mov eax,dword ptr [esp+08]
+$mov ecx,dword ptr [esp+10]
+$sub eax,ecx
+$mov word ptr [00485A92],cx
+$mov word ptr [00485A96],ax
+$pop ecx
+$add esp,10
+$ret
+$DEADCODE
+; Build PresentParams using the game's detected refresh/widescreen/progressive flags.
+; 1080i and triple buffering are intentionally omitted in the 64MB baseline.
+$F0000000 000129AA
+$movsx edx,word ptr [00485AC0]
+$mov dword ptr [esp+38],edx
+$mov al,byte ptr [00485AC2]
+$cmp al,00
+$jz DI_CheckProgressive
+$or dword ptr [esp+34],00000010
+$DI_CheckProgressive:
+$mov al,byte ptr [00485AC6]
+$cmp al,00
+$jz DI_OriginalFlow
+$or dword ptr [esp+34],00000040
+$DI_OriginalFlow:
+$mov eax,dword ptr [005093B0]
+$test eax,eax
+$jnz DI_Reset
+$jmp 000129BE
+$DI_Reset:
+$jmp 000129D4
+$DEADCODE
+; Resize rasterizer target #1 to the current screen bounds.
+$F0000000 0001DF20
+$push eax
+$cmp eax,00000001
+$jnz RT_CreateContinue
+$movsx eax,word ptr [00485A90]
+$mov dword ptr [esp+0C],eax
+$movsx eax,word ptr [00485A8E]
+$mov dword ptr [esp+10],eax
+$RT_CreateContinue:
+$pop eax
+$push ecx
+$push ebp
+$mov ebp,dword ptr [esp+24]
+$DEADCODE
+; Initialize rasterizer target #1 with screen width/height rather than 640x480.
+$F0000000 0001D770
+$push ebx
+$push 00
+$push 01
+$movsx eax,word ptr [00485A90]
+$push eax
+$push 01
+$movsx ebx,word ptr [00485A8E]
+$jmp 0001D781
+$DEADCODE
+; Update the primary texture containers after the stock primary-target function
+; completes. This is the non-triple-buffering / non-Z-compress 64MB path.
+$F0000000 00014600
+$sub esp,1C
+$push ecx
+$push esi
+$sub esp,04
+$mov dword ptr [esp],PT_Reentry
+$push ecx
+$push ebx
+$push ebp
+$push esi
+$mov esi,dword ptr [00407488]
+$jmp 0001460A
+$PT_Reentry:
+$mov dword ptr [esp+20],eax
+$push dword ptr [00509354]
+$call PT_UpdateContainer
+$push dword ptr [00509358]
+$call PT_UpdateContainer
+$push dword ptr [00509368]
+$call PT_UpdateContainer
+$push dword ptr [0050936C]
+$call PT_UpdateContainer
+$mov eax,dword ptr [esp+20]
+$pop esi
+$pop ecx
+$add esp,1C
+$ret
+$PT_UpdateContainer:
+$push ecx
+$push edx
+$mov eax,dword ptr [esp+0C]
+$mov eax,dword ptr [eax+0C]
+$shr eax,08
+$and eax,000000FF
+$movsx ecx,word ptr [00485A90]
+$push ecx
+$mov edx,003FD820
+$call edx
+$mov edx,eax
+$movsx ecx,word ptr [00485A90]
+$sub ecx,01
+$and ecx,00000FFF
+$movsx eax,word ptr [00485A8E]
+$sub eax,01
+$and eax,00000FFF
+$shl eax,0C
+$or ecx,eax
+$shr edx,06
+$sub edx,01
+$shl edx,18
+$and edx,FF000000
+$or ecx,edx
+$mov edx,dword ptr [esp+0C]
+$mov dword ptr [edx+10],ecx
+$pop edx
+$pop ecx
+$ret 04
+$DEADCODE
+; Hard-coded render-target resolution cases now use current screen bounds.
+$F0000000 0001DDB9
+$movsx eax,word ptr [00485A90]
+$mov dword ptr [edx],eax
+$movsx eax,word ptr [00485A8E]
+$mov dword ptr [ecx],eax
+$pop edi
+$mov al,01
+$pop esi
+$ret
+$DEADCODE
+; Render target helper: replace its stock width/height with screen bounds.
+$F0000000 0001DC40
+$mov eax,dword ptr [00485898]
+$push ebp
+$movsx eax,word ptr [00485A90]
+$mov dword ptr [esp+08],eax
+$movsx eax,word ptr [00485A8E]
+$mov dword ptr [esp+0C],eax
+$jmp 0001DC46
+$DEADCODE
+; Screen-effect resolution check uses current screen bounds.
+$F0000000 00022726
+$movsx eax,word ptr [00485A90]
+$cmp ax,word ptr [0048564E]
+$jnz FX_Fail
+$movsx eax,word ptr [00485A8E]
+$cmp ax,word ptr [0048564C]
+$jnz FX_Fail
+$xor al,al
+$jmp 0002273C
+$FX_Fail:
+$xor al,al
+$ret
+$DEADCODE
+; Fog vertex callback. The original site pushes 00027520; replace that callback
+; pointer with a cave-local wrapper while leaving the site's control flow intact.
+$F0000000 00025E08
+$sub esp,04
+$mov dword ptr [esp],Fog_VertexCallback
+$jmp Fog_SiteDone
+$Fog_VertexCallback:
+$push ecx
+$push dword ptr [esp+18]
+$push dword ptr [esp+18]
+$push dword ptr [esp+18]
+$push dword ptr [esp+18]
+$push dword ptr [esp+18]
+$mov eax,00027520
+$call eax
+$cmp dword ptr [esp+08],00000004
+$jnz Fog_Exit
+$mov ecx,dword ptr [esp+14]
+$cmp dword ptr [ecx],00000000
+$jz Fog_CheckY
+$mov dword ptr [ecx],43A00000
+$Fog_CheckY:
+$cmp dword ptr [ecx+04],00000000
+$jz Fog_Exit
+$mov dword ptr [ecx+04],43700000
+$Fog_Exit:
+$pop ecx
+$ret 14
+$Fog_SiteDone:
+$DEADCODE
+!!

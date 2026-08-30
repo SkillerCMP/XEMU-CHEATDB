@@ -1,0 +1,21 @@
+^1 = Hash: 97CDE07602B1F4A88a8bf607e59918b388e13d8040f9cb
+^2 = GameID: EA0049
+^3 = NAME: Def Jam: Fight for NY
+\\ USA
++FIX
+$10216445 000012EB
+
++Money Does not Reduce{Leave the Screen and money goes back to same amount}
+%Credits: Skiller
+$1001364B 00009090
+!Money 99,999,999 On Spend:
++ON
+%Credits: Skiller
+$20013640 F5E0FFB8
+$20013644 20418905
+$20013648 2B0004C2
++OFF
+$20013640 8B20418B
+$20013644 3B042454
+$20013648 2B0577D0
+!!

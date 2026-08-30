@@ -1,0 +1,35 @@
+^1 = Hash: 67ad4e07b3ff0b7edc4950a1490953d0b808a29bb3c4b28a84ced56c39bebb97
+^2 = GameID: EA009E
+^3 = NAME: Need for Speed: Carbon
++Unlock DLC Cars
+%Credits: Nicknine
+$F0000000 0008C5A2
+$mov T0, CarList
+$CheckCar:
+$mov T1, [T0]
+$test T1, T1
+$jz Failure
+$cmp eax, T1
+$je Success
+$add T0, 4
+$jmp CheckCar
+$Failure:
+$jmp Original
+$Success:
+$mov eax, 1
+$mov ecx, [ebp+8]
+$mov [ecx], eax
+$pop esi
+$pop ebp
+$ret 8
+$Original:
+$mov cl, [0x0046d784]
+$DEADCODE
+$CarList:
+$dd 0x01d28710 // 997tt
+$dd 0x8b80c5fc // challenger71
+$dd 0xe3bde8cb // corolla
+$dd 0x0001308e // g35
+$dd 0x60d6890e // mustangshlbyn
+$dd 0x0689441b // zonda
+$dd 0x00000000 // end marker

@@ -1,0 +1,53 @@
+^1 = Hash: 2bb3111e18302ad8a0b14fd9529894c6178fbb78230d68edb9eac65751c1c26c
+^2 = GameID: EA009E
+^3 = NAME: Need for Speed: Carbon
++Max Money
+%Credits: Skiller
+$90000000 80000000
+$20DDAA98 05F5E0FF
++Max Money [Code Cave]
+%Credits: Skiller
+$F0000000 0009D411
+$mov dword ptr [eax+58],05F5E0FF
+$mov eax,ecx
+$DEADCODE
++Enable Collector's Edition
+%Credits: Nicknine
+$0046D788 00000001
+!Quick Race Cars Available In My Cars:
++ON
+%Credits: Skiller
+$100885C8 000007EB
++OFF
+$100885C8 00000F74
+!!
++Unlock DLC Cars
+%Credits: Nicknine
+$F0000000 0008C552
+$mov T0, CarList
+$CheckCar:
+$mov T1, [T0]
+$test T1, T1
+$jz Original
+$cmp eax, T1
+$je Success
+$add T0, 4
+$jmp CheckCar
+$Success:
+$mov eax, 1
+$mov ecx, [ebp+8]
+$mov [ecx], eax
+$pop esi
+$pop ebp
+$ret 8
+$Original:
+$mov cl, [0x0046D784]
+$DEADCODE
+$CarList:
+$dd 01D28710      // 997tt
+$dd 8B80C5FC      // challenger71
+$dd E3BDE8CB      // corolla
+$dd 0001308E      // g35
+$dd 60D6890E      // mustangshlbyn
+$dd 0689441B      // zonda
+$dd 00000000      // end marker

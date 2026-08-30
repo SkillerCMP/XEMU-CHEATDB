@@ -1,0 +1,39 @@
+^1 = Hash: d9ca35c6b1b35ecf6a38771056a2276c89e80dcbb6f23640ed3d462354be1ab4
+^2 = GameID: TQ0109
+^3 = NAME: Ratatouille
+
+!Disable HUD:
++On
+%Credits: LuC-iTA
+$003273F0 00000001
++Off
+%Credits: LuC-iTA
+$003273F0 00000000
+!!
+!Enemies Aren't Alarmed If They See You:
++On
+%Credits: LuC-iTA
+$2006C32C 00AAE9C0
+$2006C330 8B900000
++Off
+%Credits: LuC-iTA
+$2006C32C A9850FC0
+$2006C330 8B000000
+!!
+!Jump In Mid-Air:
++On
+%Credits: LuC-iTA
+$10050D96 0000026A
+$1005D66F 0000026A
+$10050A0C 0000026A
+$1005256A 0000026A
++Off
+%Credits: LuC-iTA
+$10050D96 0000176A
+$1005D66F 0000226A
+$10050A0C 0000226A
+$1005256A 0000176A
+!!
++Unlock "Gusteaucombo" In Secrets{Go to the Secrets and activate Gusteaucombo to unlock all contents}
+%Credits: LuC-iTA
+$005799CC 00000001

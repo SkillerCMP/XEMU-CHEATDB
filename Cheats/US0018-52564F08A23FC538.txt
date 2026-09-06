@@ -24,7 +24,23 @@ $100FAB83 00009090
 +Buy even without money
 %Credits: LuC-iTA
 $1006B0B8 00006DEB
+$1009C2AE 00009090
+$1009C3AE 0000EB2A
+$1014A117 00009090
 +Hovercraft NoDamage
 %Credits: LuC-iTA
 $2031FB49 000DC1E9
 $0031FB4E 00000090
++Bet even without money
+%Credits: LuC-iTA
+$2025E842 00015DE9
+$0025E847 00000090
+$00357886 000000EB
+$00357A0E 000000EB
++Open doors even without special keys{Opening doors with any object}
+%Credits: LuC-iTA
+$201B85CC 0000CDE9
+$001B85D1 00000090
++Throw discs even without the gyrodisc glove
+%Credits: LuC-iTA
+$100F8CC3 00009090

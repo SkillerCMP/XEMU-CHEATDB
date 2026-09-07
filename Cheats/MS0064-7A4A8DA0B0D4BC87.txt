@@ -1,6 +1,7 @@
-^1 = Hash: 1d850e0ab8ea42c8a5bb3d05cd85730cdbda4addcf9dff4cc790028620645709
+^1 = Hash: 7A4A8DA0B0D4BC87B8CC56AFE5A84F4588EE1355CCAD69AB8860A74463C7EB32
 ^2 = GameID: MS0064
 ^3 = NAME: Halo 2
+; USA
 !Halo 2 HD - XEMU Test:
 +:PREENTRY:480p Wide - 64MB Baseline{Initial XEMU port of the Halo 2 HD 64MB rendering path. Enable before starting the game. Requires 480p + Widescreen enabled in the Xbox video settings. 720p/1080i, 128MB cache relocation, triple buffering, GPU/HDD/fan changes, HUD/fog toggles, debug drawing and split-screen divider changes are intentionally not included in this first baseline.}
 %Credits: grimdoomer
@@ -232,3 +233,4 @@ $ret 14
 $Fog_SiteDone:
 $DEADCODE
 !!
+

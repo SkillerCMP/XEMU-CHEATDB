@@ -1,0 +1,5 @@
+^1 = Hash: EE58C7CB481D86E355BC71A7C8F090DBABC297F7DB2B0BD96D7F483758A82839
+^2 = GameID: FL0002
+^3 = NAME: Crusty Demons
+; USA
+; Add CMP-style groups and +Cheat blocks below.

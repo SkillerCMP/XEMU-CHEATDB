@@ -1,7 +1,7 @@
-^1 = Hash: 52564f08a23fc538a20efae802dfbebb08b1c1e1881557b5d4b940eb8e97de2c
+^1 = Hash: 8CAC9F4EF09317DC8D055EE9990EB8A0998E91FF71897A763678848B069C50B5
 ^2 = GameID: US0018
 ^3 = NAME: Beyond Good & Evil
-
+; PAL
 +Untouchable Jade
 %Credits: LuC-iTA
 $004733D0 000000C3
@@ -44,3 +44,6 @@ $001B85D1 00000090
 +Throw discs even without the gyrodisc glove
 %Credits: LuC-iTA
 $100F8CC3 00009090
++Use fuses even when you don't have any (Read notes){FIRST save Double H, then use this code, to avoid problems}
+%Credits: LuC-iTA
+$104569A9 00009090

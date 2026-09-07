@@ -1,7 +1,7 @@
-^1 = Hash: d9ca35c6b1b35ecf6a38771056a2276c89e80dcbb6f23640ed3d462354be1ab4
+^1 = Hash: 614E282F9E55A835E7FDD9AF0B56C1DA9AE820965091B21BDB09C842A4605CB3
 ^2 = GameID: TQ0109
 ^3 = NAME: Ratatouille
-
+; USA
 !Disable HUD:
 +On
 %Credits: LuC-iTA
@@ -37,3 +37,4 @@ $1005256A 0000176A
 +Unlock "Gusteaucombo" In Secrets{Go to the Secrets and activate Gusteaucombo to unlock all contents}
 %Credits: LuC-iTA
 $005799CC 00000001
+

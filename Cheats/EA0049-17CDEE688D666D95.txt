@@ -1,14 +1,19 @@
-^1 = Hash: 48912a849dab6a369eb806a45206e6f75920ad37227f5c2171fa47118d39a2e7
+^1 = Hash: 17CDEE688D666D95C68832C817CAB561AF16A0D9C686C75040448461EA9DB1E8
 ^2 = GameID: EA0049
 ^3 = NAME: Def Jam: Fight for NY
-\\ USA
+; USA
+!Fixs for XEMU:
 +Fix InputBuffer Timer Deadlock
+%Credits: Skiller
+$10216445 000012EB
++Fix InputBuffer Timer Deadlock - ALT
 %Credits: Josh_7774
 $100D7E53 00009090
 $100D7E5B 00009090
 $20216445 95BFF633
 $20216449 EB000B30
 $1021644D 00009011
+!!
 +Money Does not Reduce{Leave the Screen and money goes back to same amount}
 %Credits: Skiller
 $1001364B 00009090

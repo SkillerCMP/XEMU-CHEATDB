@@ -1,6 +1,7 @@
-^1 = Hash: 865054afe6537f48ec064f376bdd158f5d3fdcff9cf8d765ba808d66b830ab0b
+^1 = Hash: B21E65ADA8B5A01416097BC30B2E418299AFE55569BBF0CE40BFCAB03D8815F5
 ^2 = GameID: EA009E
 ^3 = NAME: Need for Speed: Carbon
+; USA
 +Max Money
 %Credits: Skiller
 $90000000 80000000
@@ -41,7 +42,7 @@ $pop esi
 $pop ebp
 $ret 8
 $Original:
-$mov cl, [0046D784]
+$mov cl, [0x0046D784]
 $DEADCODE
 $CarList:
 $dd 01D28710      // 997tt

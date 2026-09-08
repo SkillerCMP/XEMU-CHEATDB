@@ -1,7 +1,7 @@
 ^1 = Hash: 61bb0c206a391c8c004edda16d71f91dd7bc3ba961527aa0175072fc8e80f7d7
 ^2 = GameID: EA0049
 ^3 = NAME: Def Jam: Fight for NY
-; PAL
+
 +FIX
 %Credits: Skiller
 $102166E5 000012EB

@@ -1,0 +1,5 @@
+^1 = Hash: 2AD68F55BB9C1D4750E50EA8976CEE5E9AAF95F669CBD2105D0A220A86E80AEE
+^2 = GameID: US0018
+^3 = NAME: Beyond Good & Evil
+; USA
+; Add CMP-style groups and +Cheat blocks below.

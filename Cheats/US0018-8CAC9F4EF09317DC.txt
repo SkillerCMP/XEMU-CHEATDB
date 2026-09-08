@@ -47,3 +47,8 @@ $100F8CC3 00009090
 +Use fuses even when you don't have any (Read notes){FIRST save Double H, then use this code, to avoid problems}
 %Credits: LuC-iTA
 $104569A9 00009090
++Invisible to the military
+%Credits: LuC-iTA
+$000BD970 000000C3
+$002FFEF0 000000C3
+$001A2190 000000C3

@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "repository": "SkillerCMP/XEMU-CHEATDB",
+  "branch": "main",
+  "source_commit": "8258d09d9868cbb946e1d92dda47e1b9671f6e71",
+  "source_commit_date": "2026-09-11T08:57:33-06:00",
+  "cheat_root": "Cheats",
+  "file_count": 12,
+  "total_bytes": 12604,
+  "files": [
+    {
+      "path": "Cheats/EA0049-17BDE1940BA65905.txt",
+      "relative_path": "EA0049-17BDE1940BA65905.txt",
+      "size": 1266,
+      "sha256": "9F9991BFBE75BFC63ABC84E44CA2327B1EAC3281BA14FC26D32FC2625908C081",
+      "download_url": "https://raw.githubusercontent.com/SkillerCMP/XEMU-CHEATDB/8258d09d9868cbb946e1d92dda47e1b9671f6e71/Cheats/EA0049-17BDE1940BA65905.txt"
+    },
+    {
+      "path": "Cheats/EA0049-61BB0C206A391C8C.txt",
+      "relative_path": "EA0049-61BB0C206A391C8C.txt",
+      "size": 173,
+      "sha256": "501195BA04B79121B38FEEB39D528030A8BE5C78F4BEE649975C1782CCF4D33E",
+      "download_url": "https://raw.githubusercontent.com/SkillerCMP/XEMU-CHEATDB/8258d09d9868cbb946e1d92dda47e1b9671f6e71/Cheats/EA0049-61BB0C206A391C8C.txt"
+    },
+    {
+      "path": "Cheats/EA009E-53780688DE742E83.txt",
+      "relative_path": "EA009E-53780688DE742E83.txt",
+      "size": 1009,
+      "sha256": "D50572C27EB75035C452A6FE2DCB7040BA768FA1EB5927C1D5510E6C28060A6F",
+      "download_url": "https://raw.githubusercontent.com/SkillerCMP/XEMU-CHEATDB/8258d09d9868cbb946e1d92dda47e1b9671f6e71/Cheats/EA009E-53780688DE742E83.txt"
+    },
+    {
+      "path": "Cheats/EA009E-67ad4e07b3ff0b7e.txt",
+      "relative_path": "EA009E-67ad4e07b3ff0b7e.txt",
+      "size": 647,
+      "sha256": "5EB20479A956971491151A23B01A564B5BFAF109B8D6BC2BE64D21820C6231C8",
+      "download_url": "https://raw.githubusercontent.com/SkillerCMP/XEMU-CHEATDB/8258d09d9868cbb946e1d92dda47e1b9671f6e71/Cheats/EA009E-67ad4e07b3ff0b7e.txt"
+    },
+    {
+      "path": "Cheats/FL0002-E9321D858E5B2631.txt",
+      "relative_path": "FL0002-E9321D858E5B2631.txt",
+      "size": 175,
+      "sha256": "2A4E20358BC9116A99F32513D9398E3A2D9BCC1B2FA7E5F08483EF183C82B8DD",
+      "download_url": "https://raw.githubusercontent.com/SkillerCMP/XEMU-CHEATDB/8258d09d9868cbb946e1d92dda47e1b9671f6e71/Cheats/FL0002-E9321D858E5B2631.txt"
+    },
+    {
+      "path": "Cheats/MS0064-3688AAB5A15ACA3A.txt",
+      "relative_path": "MS0064-3688AAB5A15ACA3A.txt",
+      "size": 5834,
+      "sha256": "62ED77583ECD99B824320B0382DD05BDB4E6302F34CBDFF4CE7F9BB47B149977",
+      "download_url": "https://raw.githubusercontent.com/SkillerCMP/XEMU-CHEATDB/8258d09d9868cbb946e1d92dda47e1b9671f6e71/Cheats/MS0064-3688AAB5A15ACA3A.txt"
+    },
+    {
+      "path": "Cheats/NM0003-66924760DA1C55DF.txt",
+      "relative_path": "NM0003-66924760DA1C55DF.txt",
+      "size": 292,
+      "sha256": "5966FF247B87AD169793FB5C7867F6613F1D21851BB3067588F90D127E4284BE",
+      "download_url": "https://raw.githubusercontent.com/SkillerCMP/XEMU-CHEATDB/8258d09d9868cbb946e1d92dda47e1b9671f6e71/Cheats/NM0003-66924760DA1C55DF.txt"
+    },
+    {
+      "path": "Cheats/TQ0002-541F7862DFDC847A.txt",
+      "relative_path": "TQ0002-541F7862DFDC847A.txt",
+      "size": 489,
+      "sha256": "16A44DA69B78AA474E7BC99D9EBB5EB629395F3695C3F6FF7B43014AB2337B04",
+      "download_url": "https://raw.githubusercontent.com/SkillerCMP/XEMU-CHEATDB/8258d09d9868cbb946e1d92dda47e1b9671f6e71/Cheats/TQ0002-541F7862DFDC847A.txt"
+    },
+    {
+      "path": "Cheats/TQ0024-E81199895CEDA71A.txt",
+      "relative_path": "TQ0024-E81199895CEDA71A.txt",
+      "size": 388,
+      "sha256": "118E57C9B6E4351763E81B1D53CE45612E8FA304FA1EA5BA6A9D238600566C59",
+      "download_url": "https://raw.githubusercontent.com/SkillerCMP/XEMU-CHEATDB/8258d09d9868cbb946e1d92dda47e1b9671f6e71/Cheats/TQ0024-E81199895CEDA71A.txt"
+    },
+    {
+      "path": "Cheats/TQ0109-C7AF5877B8BD2FCF.txt",
+      "relative_path": "TQ0109-C7AF5877B8BD2FCF.txt",
+      "size": 749,
+      "sha256": "2F9D4CC104A4F63622F79FB726B811DB9C2439C83E05821AF00873733C73844E",
+      "download_url": "https://raw.githubusercontent.com/SkillerCMP/XEMU-CHEATDB/8258d09d9868cbb946e1d92dda47e1b9671f6e71/Cheats/TQ0109-C7AF5877B8BD2FCF.txt"
+    },
+    {
+      "path": "Cheats/US0018-2AD68F55BB9C1D47.txt",
+      "relative_path": "US0018-2AD68F55BB9C1D47.txt",
+      "size": 180,
+      "sha256": "4B98A20FB917BD3C64C6B78EFB1A87AD160DB855CB97D8B16065D04A1AAF95AE",
+      "download_url": "https://raw.githubusercontent.com/SkillerCMP/XEMU-CHEATDB/8258d09d9868cbb946e1d92dda47e1b9671f6e71/Cheats/US0018-2AD68F55BB9C1D47.txt"
+    },
+    {
+      "path": "Cheats/US0018-8CAC9F4EF09317DC.txt",
+      "relative_path": "US0018-8CAC9F4EF09317DC.txt",
+      "size": 1402,
+      "sha256": "9A868164874834A78086AF8AC32DD6F79C5A0EB8658D18D3CDF66A1B4777C714",
+      "download_url": "https://raw.githubusercontent.com/SkillerCMP/XEMU-CHEATDB/8258d09d9868cbb946e1d92dda47e1b9671f6e71/Cheats/US0018-8CAC9F4EF09317DC.txt"
+    }
+  ]
+}

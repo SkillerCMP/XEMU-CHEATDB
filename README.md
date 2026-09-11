@@ -41,9 +41,9 @@
 
 ## What is XEMU-CHEATDB?
 
-XEMU-CHEATDB is a community-maintained collection of cheat codes for Original Xbox games, designed to work with the **RAW Cheat Engine in XEMU**.
+XEMU-CHEATDB is a community-maintained collection of cheat codes for Original Xbox games, designed to work with the **Cheat Engine in XEMU**.
 
-These cheats can unlock hidden content, enable debug features, adjust gameplay, and more — helping you get the most out of your favorite classics.
+These cheats can unlock hidden content, enable debug features, adjust gameplay, and more helping you get the most out of your favorite classics.
 
 ## How to Use Cheats in XEMU
 
@@ -157,6 +157,19 @@ https://github.com/SkillerCMP/XEMU-CHEATDB
 <div align="center">
 
 **THANK YOU TO EVERYONE WHO KEEPS THE ORIGINAL XBOX ALIVE!**
+
+<hr>
+
+<div align="center">
+
+<strong>Disclaimer</strong>
+
+<br><br>
+
+XEMU-CHEATDB and CMP are community projects intended for preservation, research, modification, and enhancement of legally obtained software.<br>
+We do not condone, support, or endorse piracy or the unauthorized distribution of copyrighted material.
+
+</div>
 
 <img src="assets/icons/xbox.png" width="112" alt="Xbox">
 

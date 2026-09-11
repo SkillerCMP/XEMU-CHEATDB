@@ -18,18 +18,32 @@
 
 ---
 
-<table>
+<table align="center" width="92%">
 <tr>
-<td width="33%" valign="top"><img src="assets/icons/controller.png" width="34" align="left" alt="Controller"> <b>CHEAT CODES</b><br>Unlock more from your favorite games.</td>
-<td width="33%" valign="top"><img src="assets/icons/debug.png" width="34" align="left" alt="Debug Tools"> <b>DEBUG TOOLS</b><br>Explore. Modify. Customize.</td>
-<td width="33%" valign="top"><img src="assets/icons/custom.png" width="34" align="left" alt="Community"> <b>COMMUNITY DRIVEN</b><br>Built by players, for players.</td>
+<td width="33%" valign="top">
+<img src="assets/icons/controller.png" width="34" align="left" alt="Controller">
+<b>CHEAT CODES</b><br>
+Unlock more from your favorite games.
+</td>
+
+<td width="33%" valign="top">
+<img src="assets/icons/debug.png" width="34" align="left" alt="Debug Tools">
+<b>DEBUG TOOLS</b><br>
+Explore. Modify. Customize.
+</td>
+
+<td width="33%" valign="top">
+<img src="assets/icons/custom.png" width="34" align="left" alt="Community">
+<b>COMMUNITY DRIVEN</b><br>
+Built by players, for players.
+</td>
 </tr>
 </table>
 
 <div align="center">
 
-**PRESERVE • PLAY • ENHANCE**  
-**CLASSIC GAMES. BRIGHTER TOMORROW.**
+<strong>PRESERVE • PLAY • ENHANCE</strong><br>
+<strong>CLASSIC GAMES. BRIGHTER TOMORROW.</strong>
 
 </div>
 
@@ -163,14 +177,9 @@ https://github.com/SkillerCMP/XEMU-CHEATDB
 <div align="center">
 
 <strong>Disclaimer</strong>
-
-<br><br>
-
-XEMU-CHEATDB and CMP are community projects intended for preservation, research, modification, and enhancement of legally obtained software.<br>
+<br>
+XEMU-CHEATDB and CMP are community projects intended for preservation, research, modification, and enhancement of legally obtained software.
 We do not condone, support, or endorse piracy or the unauthorized distribution of copyrighted material.
-
 </div>
-
 <img src="assets/icons/xbox.png" width="112" alt="Xbox">
-
 </div>

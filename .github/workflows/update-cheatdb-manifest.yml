@@ -1,0 +1,141 @@
+name: Update CheatDB Manifest
+
+on:
+  push:
+    paths:
+      - "Cheats/**"
+      - ".github/workflows/update-cheatdb-manifest.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cheatdb-manifest-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  update-manifest:
+    # Keep the published manifest on the repository's default branch.
+    if: github.ref_name == github.event.repository.default_branch && github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Generate cheatdb-manifest.json
+        shell: bash
+        env:
+          CHEAT_ROOT: Cheats
+          MANIFEST_PATH: cheatdb-manifest.json
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          import subprocess
+          from pathlib import Path
+          from urllib.parse import quote
+
+          repo_root = Path.cwd()
+          cheat_root_name = os.environ.get("CHEAT_ROOT", "Cheats")
+          manifest_name = os.environ.get("MANIFEST_PATH", "cheatdb-manifest.json")
+
+          cheat_root = repo_root / cheat_root_name
+          manifest_path = repo_root / manifest_name
+
+          if not cheat_root.is_dir():
+              raise SystemExit(f"Cheat folder not found: {cheat_root_name}")
+
+          repository = os.environ["GITHUB_REPOSITORY"]
+          branch = os.environ["GITHUB_REF_NAME"]
+          source_commit = os.environ["GITHUB_SHA"]
+
+          # Stable timestamp from the source commit rather than the current clock.
+          # This keeps manual reruns deterministic when nothing changed.
+          source_commit_date = subprocess.check_output(
+              ["git", "show", "-s", "--format=%cI", source_commit],
+              text=True,
+          ).strip()
+
+          ignored_names = {
+              ".DS_Store",
+              "Thumbs.db",
+              "desktop.ini",
+          }
+
+          files = []
+          total_bytes = 0
+
+          for path in sorted(
+              (p for p in cheat_root.rglob("*") if p.is_file()),
+              key=lambda p: p.as_posix().casefold(),
+          ):
+              if path.name in ignored_names:
+                  continue
+
+              data = path.read_bytes()
+              digest = hashlib.sha256(data).hexdigest().upper()
+
+              repo_relative = path.relative_to(repo_root).as_posix()
+              cheat_relative = path.relative_to(cheat_root).as_posix()
+              size = len(data)
+              total_bytes += size
+
+              entry = {
+                  "path": repo_relative,
+                  "relative_path": cheat_relative,
+                  "size": size,
+                  "sha256": digest,
+                  # Pin downloads to the exact commit represented by this manifest.
+                  "download_url": (
+                      f"https://raw.githubusercontent.com/"
+                      f"{repository}/{source_commit}/{quote(repo_relative, safe='/')}"
+                  ),
+              }
+
+              parts = Path(cheat_relative).parts
+              if len(parts) > 1:
+                  entry["group"] = parts[0]
+
+              files.append(entry)
+
+          manifest = {
+              "schema_version": 1,
+              "repository": repository,
+              "branch": branch,
+              "source_commit": source_commit,
+              "source_commit_date": source_commit_date,
+              "cheat_root": cheat_root_name,
+              "file_count": len(files),
+              "total_bytes": total_bytes,
+              "files": files,
+          }
+
+          manifest_path.write_text(
+              json.dumps(manifest, indent=2, ensure_ascii=False) + "\n",
+              encoding="utf-8",
+          )
+
+          print(f"Wrote {manifest_name}")
+          print(f"Files: {len(files)}")
+          print(f"Bytes: {total_bytes}")
+          PY
+
+      - name: Commit updated manifest
+        shell: bash
+        run: |
+          if [[ -z "$(git status --porcelain -- cheatdb-manifest.json)" ]]; then
+            echo "Manifest is already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add cheatdb-manifest.json
+          git commit -m "chore: update CheatDB manifest"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
